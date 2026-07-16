@@ -1,12 +1,11 @@
 from pathlib import Path
+import sqlite3
 
 import streamlit as st
 
 
-USERNAME = "admin"
-PASSWORD = "admin123"
-
 DASHBOARD_DIR = Path(__file__).resolve().parents[1]
+DB_PATH = DASHBOARD_DIR / "Database" / "ABSA_insight.db"
 LOGO_PATH = DASHBOARD_DIR / "Asset" / "Logo Gambar (remove bg).png"
 
 
@@ -30,6 +29,22 @@ def init_session():
         st.session_state.login_status = False
     if "page" not in st.session_state:
         st.session_state.page = "Login"
+
+
+def authenticate_user(username: str, password: str) -> bool:
+    """Validasi kredensial menggunakan tabel user di database SQLite."""
+    with sqlite3.connect(DB_PATH) as connection:
+        result = connection.execute(
+            """
+            SELECT 1
+            FROM user
+            WHERE username = ? AND password = ?
+            LIMIT 1
+            """,
+            (username, password),
+        ).fetchone()
+
+    return result is not None
 
 
 def show_sidebar():
