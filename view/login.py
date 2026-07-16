@@ -17,7 +17,7 @@ def show():
     
     st.write("")
     st.title("Login ABSA Insight")
-    with st.form("login_form"):
+    with st.form("login_form", border=False):
         user = st.text_input("Username", key="login_username")
         pwd = st.text_input("Password", type="password", key="login_password")
         login_clicked = st.form_submit_button("Login", width="stretch")
