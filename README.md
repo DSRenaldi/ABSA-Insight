@@ -1,5 +1,9 @@
 # ABSA Insight
 
+<p align="center">
+  <img src="Asset/Logo%20Gambar%20(remove%20bg).png" alt="Logo ABSA Insight" width="220">
+</p>
+
 ABSA Insight adalah aplikasi dashboard untuk menganalisis komentar pelanggan PDAM menggunakan pendekatan **Aspect-Based Sentiment Analysis (ABSA)**. Aplikasi ini membantu pengguna mengetahui aspek layanan yang sedang dibicarakan sekaligus mengidentifikasi sentimen pada setiap komentar sebagai **positif**, **netral**, atau **negatif**.
 
 ## Tujuan Aplikasi
